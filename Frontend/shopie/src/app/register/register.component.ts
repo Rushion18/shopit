@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { RegisterService } from '../service/register.service';
+import { RegisterService } from '../service/user/register.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -28,9 +28,8 @@ export class RegisterComponent {
     if (this.registrationForm.valid) {
       console.log(this.registrationForm);
       this.register.registerNewUser(this.registrationForm.value).then(() => {
-        // Show success message
+        //Show success message
         this.showSuccessMessage = true;
-
         setTimeout(() => {
           this.showSuccessMessage = false;
           this.router.navigate(['login']);

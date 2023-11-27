@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegisterService } from '../service/register.service';
+import { RegisterService } from '../service/user/register.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-loginform',
+  templateUrl: './loginform.component.html',
+  styleUrls: ['./loginform.component.css'],
 })
-export class LoginComponent {
+export class LoginformComponent {
   loginForm!: FormGroup;
   showSuccessMessage = false;
   showErrorMessage = false;
@@ -43,11 +43,10 @@ export class LoginComponent {
             if (data.info.role === 'user') {
               this.router.navigate(['user']);
             } else if (data.info.role === 'admin') {
-              this.router.navigate(['adminhome']); 
+              this.router.navigate(['adminhome']);
             }
           }, 3000);
-        }
-        )
+        });
       });
     }
   }
