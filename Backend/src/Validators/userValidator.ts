@@ -31,4 +31,11 @@ export const userLoginValidationSchema = joi.object({
 
 export const validateUserEmail = joi.object().keys({
   email: joi.string().email().required(),
+  password: joi.string().required()
 });
+
+export const validateResetpassword = joi.object().keys({
+  userID: joi.string().min(8).required(),
+  password: joi.string().pattern(new RegExp("^[a-zA-Z0-9!@#%$&*()]{0,30}$")),
+});
+

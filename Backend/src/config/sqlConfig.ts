@@ -21,7 +21,7 @@ export const sqlConfig = {
 async function TestConnection() {
   const pool = await mssql.connect(sqlConfig);
   if (pool.connected) {
-    console.log("connected to database on port 4520");
+    console.log("connected to database on port 4500");
   } else {
     console.log("not connected");
   }
