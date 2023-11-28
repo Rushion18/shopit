@@ -11,10 +11,14 @@ import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { UserhomeComponent } from './userhome/userhome.component';
 import { LoginformComponent } from './loginform/loginform.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { AddproductComponent } from './addproduct/addproduct.component';
+import { GetallusersComponent } from './getallusers/getallusers.component';
+import { SearchuserPipe } from './pipe/searchuser.pipe';
+import { ProductModalComponent } from './product-modal/product-modal.component';
 
 
 @NgModule({
-  declarations: [AppComponent, NotfoundComponent, RegisterComponent, AdminhomeComponent, UserhomeComponent, LoginformComponent, AdmindashboardComponent],
+  declarations: [AppComponent, NotfoundComponent, RegisterComponent, AdminhomeComponent, UserhomeComponent, LoginformComponent, AdmindashboardComponent, AddproductComponent, GetallusersComponent, SearchuserPipe, ProductModalComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

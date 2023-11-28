@@ -1,12 +1,14 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { throwError } from 'rxjs/internal/observable/throwError';
 import { loginUserDetails } from 'src/app/interface/loginUserDetails';
-import { UserDetails } from 'src/app/interface/register';
+import { UserDetails, getallusers } from 'src/app/interface/register';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RegisterService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   //REGISTER USER
   async registerNewUser(userdetail: UserDetails) {
@@ -24,7 +26,7 @@ export class RegisterService {
 
     return data;
   }
-
+  //LOGIN USER
   async loginregistereduser(logindata: loginUserDetails) {
     // let body = {email, password}
     let res = await fetch('http://localhost:4500/user/login', {
@@ -56,5 +58,48 @@ export class RegisterService {
 
     console.log(data);
     return data;
+  }
+
+  //FETCH ALL USERS
+  fetchAllUsers() {
+    const token = localStorage.getItem('token');
+    //console.log(token);
+
+    if (token) {
+      let response = this.http.get<{ users: getallusers[] }>(
+        'http://localhost:4500/user/getallusers',
+        {
+          headers: new HttpHeaders({
+            'Content-type': 'application/json',
+            token: token,
+          }),
+        }
+      );
+      return response;
+    } else {
+      return null;
+    }
+  }
+
+  //DELETE USERS
+  deleteuser(userID: string) {
+    const token = localStorage.getItem('token');
+    //console.log(token);
+
+    if (!token) {
+      return throwError('User not authenticated');
+    }
+
+    const options = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        token: token,
+      }),
+    };
+
+    return this.http.delete(
+      `http://localhost:4500/user/deleteuser/${userID}`,
+      options
+    );
   }
 }
