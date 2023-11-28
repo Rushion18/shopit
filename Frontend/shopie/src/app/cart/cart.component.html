@@ -1,1 +1,7 @@
-<p>cart works!</p>
+<app-userdashboard></app-userdashboard>
+<div *ngFor="let product of cartItems">
+    <img src="{{product.image}}" alt="">
+    <p>{{product.title}}</p>
+    <p>{{product.price}}</p>
+    <p>{{product.quantity}}</p>
+</div>
