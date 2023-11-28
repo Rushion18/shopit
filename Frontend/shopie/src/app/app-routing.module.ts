@@ -9,6 +9,8 @@ import { LoginformComponent } from './loginform/loginform.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { GetallusersComponent } from './getallusers/getallusers.component';
 import { ProductModalComponent } from './product-modal/product-modal.component';
+import { CartComponent } from './cart/cart.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -17,7 +19,9 @@ const routes: Routes = [
   { path: 'adminusers', component: GetallusersComponent },
   { path: 'adminaddproduct', component: AddproductComponent },
   { path: 'user', component: UserhomeComponent },
-  { path: 'viewproduct/:id', component: ProductModalComponent },
+  { path: 'viewproduct', component: ProductModalComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'profile', component: ProfileComponent},
 
   { path: '**', component: NotfoundComponent },
 ];

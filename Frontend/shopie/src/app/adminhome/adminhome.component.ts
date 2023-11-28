@@ -10,6 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./adminhome.component.css'],
 })
 export class AdminhomeComponent {
+  searchtext = '';
   products: getallproducts[] = [];
   viewSingleProduct: getallproducts[] = [];
 
@@ -53,6 +54,7 @@ export class AdminhomeComponent {
         //console.log(response);
         this.viewSingleProduct = response;
         console.log(this.viewSingleProduct);
+        // this.router.navigate(['/viewproduct']);
       });
   }
 
@@ -77,9 +79,9 @@ export class AdminhomeComponent {
     );
     // console.log(selectedProduct);
     if (selectedProduct) {
-      const { isDeleted, ...rest } = selectedProduct
+      const { isDeleted, ...rest } = selectedProduct;
       // console.log(rest);
-      
+
       this.updatedProduct = rest;
       console.log(this.updatedProduct);
       this.showForm = true;

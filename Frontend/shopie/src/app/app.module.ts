@@ -15,10 +15,14 @@ import { AddproductComponent } from './addproduct/addproduct.component';
 import { GetallusersComponent } from './getallusers/getallusers.component';
 import { SearchuserPipe } from './pipe/searchuser.pipe';
 import { ProductModalComponent } from './product-modal/product-modal.component';
+import { UserdashboardComponent } from './userdashboard/userdashboard.component';
+import { CartComponent } from './cart/cart.component';
+import { ProfileComponent } from './profile/profile.component';
+import { SearchproductPipe } from './pipe/searchproduct.pipe';
 
 
 @NgModule({
-  declarations: [AppComponent, NotfoundComponent, RegisterComponent, AdminhomeComponent, UserhomeComponent, LoginformComponent, AdmindashboardComponent, AddproductComponent, GetallusersComponent, SearchuserPipe, ProductModalComponent],
+  declarations: [AppComponent, NotfoundComponent, RegisterComponent, AdminhomeComponent, UserhomeComponent, LoginformComponent, AdmindashboardComponent, AddproductComponent, GetallusersComponent, SearchuserPipe, ProductModalComponent, UserdashboardComponent, CartComponent, ProfileComponent, SearchproductPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,
