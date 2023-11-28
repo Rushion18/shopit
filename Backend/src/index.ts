@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import user_router from "./Routes/userRoutes";
 import cors from "cors";
 import product_router from "./Routes/productRoutes";
+import order_router from "./Routes/orderRoutes";
 
 dotenv.config();
 const port = process.env.PORT;
@@ -15,6 +16,7 @@ app.use(urlencoded({ extended: true }));
 
 app.use("/user", user_router);
 app.use("/product", product_router);
+app.use("/order", order_router);
 
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {

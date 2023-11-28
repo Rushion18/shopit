@@ -20,7 +20,7 @@ export class UserhomeComponent {
   ngOnInit() {
     this.fetchAllProducts();
   }
-
+  //FETCH ALL PRODUCTS
   fetchAllProducts() {
     this.productservice.fetchAllProducts()?.subscribe((response: any) => {
       this.products = response;

@@ -20,7 +20,7 @@ Content-Type: application/json
 
 ###getallUsers
 GET http://localhost:4500/user/getallusers
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxNjQ4ZjkyMi04YWU5LTQzYTctYWVlYS0wYzRmOWE0NzYyNTgiLCJ1c2VyTmFtZSI6IlNhbmRyYSBDaGVnZSIsImVtYWlsIjoiOXN1cGVyYmlrZXNAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpc0RlbGV0ZWQiOmZhbHNlLCJXZWxjb21lZCI6ZmFsc2UsImlhdCI6MTcwMTA3MjMwOSwiZXhwIjoxNzAxMTU4NzA5fQ.dVf298WLLdkMeNxVbOvfB2rup25orB2Y9_hQSvrwmlo
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxNjQ4ZjkyMi04YWU5LTQzYTctYWVlYS0wYzRmOWE0NzYyNTgiLCJ1c2VyTmFtZSI6IlNhbmRyYSBDaGVnZSIsImVtYWlsIjoiOXN1cGVyYmlrZXNAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaXNEZWxldGVkIjpmYWxzZSwiV2VsY29tZWQiOmZhbHNlLCJpYXQiOjE3MDExNzI5MzQsImV4cCI6MTcwMTI1OTMzNH0.n8N7Ef7jNp3OxqJFX5rTmoarC8W3Xt9QOkED0SueXrA
 
 ###checkuserdetails
 GET http://localhost:4500/user/checkuserdetails
@@ -70,7 +70,7 @@ Content-Type: application/json
 }
 ###GET ALL PRODUCTS
 GET http://localhost:4500/product/getallproducts
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxNjQ4ZjkyMi04YWU5LTQzYTctYWVlYS0wYzRmOWE0NzYyNTgiLCJ1c2VyTmFtZSI6IlNhbmRyYSBDaGVnZSIsImVtYWlsIjoiOXN1cGVyYmlrZXNAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpc0RlbGV0ZWQiOmZhbHNlLCJXZWxjb21lZCI6ZmFsc2UsImlhdCI6MTcwMTA3MjMwOSwiZXhwIjoxNzAxMTU4NzA5fQ.dVf298WLLdkMeNxVbOvfB2rup25orB2Y9_hQSvrwmlo
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxNjQ4ZjkyMi04YWU5LTQzYTctYWVlYS0wYzRmOWE0NzYyNTgiLCJ1c2VyTmFtZSI6IlNhbmRyYSBDaGVnZSIsImVtYWlsIjoiOXN1cGVyYmlrZXNAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaXNEZWxldGVkIjpmYWxzZSwiV2VsY29tZWQiOmZhbHNlLCJpYXQiOjE3MDExNzI5MzQsImV4cCI6MTcwMTI1OTMzNH0.n8N7Ef7jNp3OxqJFX5rTmoarC8W3Xt9QOkED0SueXrA
 
 ###GET SINGLE PRODUCT
 GET http://localhost:4500/product/getoneproduct/3b8bffd5-b11e-4ac8-8210-53c5c93c2f37
@@ -90,3 +90,37 @@ Content-Type: application/json
 }
 ###DELETE PRODUCT
 DELETE http://localhost:4500/product/deleteproduct/3b8bffd5-b11e-4ac8-8210-53c5c93c2f37
+
+###ADD TO CART
+POST http://localhost:4500/order/add
+Content-Type: application/json
+
+{
+    "userID":"8e775adc-98fa-4047-9822-7b32fd61a728",
+    "productID":"bef79d52-c858-46e5-876a-18823254cd5a",
+    "count":"2",
+    "price":"40000"
+}
+
+###GET ALL ORDERS
+GET http://localhost:4500/order/allorders
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxNjQ4ZjkyMi04YWU5LTQzYTctYWVlYS0wYzRmOWE0NzYyNTgiLCJ1c2VyTmFtZSI6IlNhbmRyYSBDaGVnZSIsImVtYWlsIjoiOXN1cGVyYmlrZXNAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaXNEZWxldGVkIjpmYWxzZSwiV2VsY29tZWQiOmZhbHNlLCJpYXQiOjE3MDExNzI5MzQsImV4cCI6MTcwMTI1OTMzNH0.n8N7Ef7jNp3OxqJFX5rTmoarC8W3Xt9QOkED0SueXrA
+
+###GET SINGLE ORDER
+GET http://localhost:4500/order/oneorder/c180b5ef-e682-41a0-8a48-eff41c164869
+
+###UPDATE ORDER
+PUT http://localhost:4500/order/updateorder
+Content-Type: application/json
+
+{
+    "productID":"bef79d52-c858-46e5-876a-18823254cd5a",
+    "userID": "8e775adc-98fa-4047-9822-7b32fd61a728",
+    "price": "60000",
+    "count": "3",
+    "orderID": "c180b5ef-e682-41a0-8a48-eff41c164869"
+}
+
+###DELETE ORDER
+DELETE http://localhost:4500/order/deleteorder/c180b5ef-e682-41a0-8a48-eff41c164869
+
