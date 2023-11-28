@@ -45,17 +45,17 @@ export class AdminhomeComponent {
       // console.log(this.products);
     });
   }
+  showProduct = false;
 
   viewProduct(productID: string) {
-    // console.log(productID);
-    this.productservice
-      .getProductByID(productID)
-      ?.subscribe((response: getallproducts[]) => {
-        //console.log(response);
-        this.viewSingleProduct = response;
-        console.log(this.viewSingleProduct);
-        // this.router.navigate(['/viewproduct']);
+    this.productservice.getProductByID(productID)?.subscribe((response: getallproducts[]) => {
+      this.viewSingleProduct = response;
+      this.showProduct = true;
+      console.log(this.viewSingleProduct);
       });
+  }
+  hideProduct() {
+    this.showProduct = false;
   }
 
   //DELETE PRODUCT

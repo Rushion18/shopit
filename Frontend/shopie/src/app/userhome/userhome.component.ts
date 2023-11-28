@@ -10,8 +10,9 @@ import { ProductsService } from '../service/Products/products.service';
 })
 export class UserhomeComponent {
   products: getallproducts[] = [];
+  viewSingleProduct: getallproducts[] = [];
   searchtext = '';
-  
+
   constructor(
     private router: Router,
     private productservice: ProductsService
@@ -25,5 +26,19 @@ export class UserhomeComponent {
       this.products = response;
       console.log(this.products);
     });
+  }
+  //SHOW PRODUCT
+  showProduct = false;
+  viewProduct(productID: string) {
+    this.productservice
+      .getProductByID(productID)
+      ?.subscribe((response: getallproducts[]) => {
+        this.viewSingleProduct = response;
+        this.showProduct = true;
+        console.log(this.viewSingleProduct);
+      });
+  }
+  hideProduct() {
+    this.showProduct = false;
   }
 }

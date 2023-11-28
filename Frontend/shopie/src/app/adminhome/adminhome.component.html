@@ -36,15 +36,22 @@
   </div>
 </div>
 
-<!-- <div *ngif="pdetails">
-  <div class="overlay" (click)="hideForm()"></div>
-  <div class="form-container show-form">
-    <form action="">
-          <label for="">Product Name</label>
-          <input type="text" [(ngModel)]="" formControlName="title"  class="p-4 border-gray-200 border-[0.5px] outline-none">
-    </form>
+<div *ngIf="showProduct" class="pdetails overlay">
+  <div class="overlay" (click)="hideProduct()"></div>
+  <div class="container">
+    <div *ngFor = "let product of viewSingleProduct">
+      <img src="{{ product.image }}" alt="">
+      <div class="flex flex-col">
+        <p class="p-4">Product name: {{product.title}}</p>
+        <p class="p-4">Product Category: {{product.category}}</p>
+        <p class="p-4">product price: {{ product.price | currency : "KES" }}</p>
+        <p class="p-4">product count: {{ product.stock}}</p>
+        <p class="p-4">{{product.description}}</p>
+      </div>
+    </div>
+     <button (click)="hideProduct()" class="text-white px-4 py-2 rounded-md">Close</button>
   </div>
-</div> -->
+</div>
 
 <div class="overlay"  *ngIf="showForm">
       <div class="overlay" (click)="hideForm()"></div>
@@ -67,7 +74,7 @@
 
           <div class="buttons">
             <button class="bg-[#4caf50] text-white px-4 py-2 rounded-md" (click)="saveChanges()">Save Changes</button>
-            <button (click)="hideForm()" class="bg-[#f44336] text-white px-4 py-2 rounded-md">Close Form</button>
+            <button (click)="hideForm()" class="bg-[#D03E3B] text-white px-4 py-2 rounded-md">Close Form</button>
           </div>
         </form>
       </div>
