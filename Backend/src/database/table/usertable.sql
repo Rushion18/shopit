@@ -20,8 +20,8 @@ CREATE TABLE Users (
 -- set role = 'admin'
 -- where email = '9superbikes@gmail.com'
 
--- delete from Users 
--- where email != '9superbikes@gmail.com'
+delete from Users 
+where email = 'chegemwihaki88@gmail.com'
 
 -- UPDATE Users
 -- SET resetPassword = 0
