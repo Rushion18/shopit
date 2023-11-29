@@ -26,8 +26,6 @@ export class LoginformComponent {
 
   loginUser() {
     if (this.loginForm.valid) {
-      // console.log(this.loginForm);
-      // console.log(this.loginForm.value);
 
       this.register.loginregistereduser(this.loginForm.value).then((data) => {
         // console.log(data);
@@ -45,6 +43,12 @@ export class LoginformComponent {
             } else if (data.info.role === 'admin') {
               this.router.navigate(['adminhome']);
             }
+          }, 3000);
+        }).catch((error) => {
+          console.log(error);
+          this.showErrorMessage = true;
+          setTimeout(() => {
+            this.showErrorMessage = false;
           }, 3000);
         });
       });

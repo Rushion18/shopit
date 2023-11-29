@@ -13,6 +13,8 @@ export class UserhomeComponent {
   viewSingleProduct: getallproducts[] = [];
   searchtext = '';
 
+  cartItems: any[] = [];
+
   constructor(
     private router: Router,
     private productservice: ProductsService
@@ -20,7 +22,7 @@ export class UserhomeComponent {
   ngOnInit() {
     this.fetchAllProducts();
   }
-
+  //FETCH ALL PRODUCTS
   fetchAllProducts() {
     this.productservice.fetchAllProducts()?.subscribe((response: any) => {
       this.products = response;
@@ -40,5 +42,36 @@ export class UserhomeComponent {
   }
   hideProduct() {
     this.showProduct = false;
+  }
+
+  //ADD TO CART
+  addtoCart(product: getallproducts) {
+    console.log(product);
+    
+    const cartString = localStorage.getItem('cart');
+    const cartItems = cartString ? JSON.parse(cartString) : [];
+
+    const existingItem = cartItems.find(
+      (item: any) => item.productID === product.productID
+    );
+
+    if (existingItem) {
+      if (existingItem.quantity < product.stock) {
+        existingItem.quantity += 1;
+      }
+    } else {
+      const cartProduct = {
+        productID: product.productID,
+        image: product.image,
+        title: product.title,
+        price: product.price,
+        quantity: 1,
+      };
+
+      cartItems.push(cartProduct);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  
   }
 }
