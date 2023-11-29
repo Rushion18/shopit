@@ -10,32 +10,43 @@ import { getallproducts } from '../interface/products';
 })
 export class CartComponent {
   cartItems: any[] = [];
-  cartProducts: any[] = [];
-  products: getallproducts[] = [];
+  // cartProducts: any[] = [];
+  // products: getallproducts[] = [];
 
   constructor(
     private router: Router,
     private productservice: ProductsService
   ) {}
   ngOnInit() {
-    // this.displayAllItems();
-    this.loadCart();
-  }
-  //FETCH ALL PRODUCTS
-  fetchAllProducts() {
-    this.productservice.fetchAllProducts()?.subscribe((response: any) => {
-      this.products = response;
-      console.log(this.products);
-    });
-  }
-  loadCart() {
-    const cartString = localStorage.getItem('cart');
-    this.cartItems = cartString ? JSON.parse(cartString) : [];
-    // this.updateCartCount();
+    this.displayCart();
   }
 
-  // displayAllItems() {
-  //   this.cartItems = localStorage.getItem('cart');
-  //   console.log(this.cartItems);
+  displayCart() {
+    const cartString = localStorage.getItem('cart');
+    this.cartItems = cartString ? JSON.parse(cartString) : [];
+  }
+
+  getTotalPrice(): number {
+    return this.cartItems.reduce(
+      (total, product) => total + product.quantity * product.price,
+      0
+    );
+  }
+
+  increaseQuantity(index: number) {
+    this.cartItems[index].quantity++;
+  }
+
+  decreaseQuantity(index: number) {
+    if (this.cartItems[index].quantity > 1) {
+      this.cartItems[index].quantity--;
+    }
+  }
+
+  // getTotalPrice(): number {
+  //   return this.cartItems.reduce(
+  //     (total, product) => total + product.quantity * product.price,
+  //     0
+  //   );
   // }
 }

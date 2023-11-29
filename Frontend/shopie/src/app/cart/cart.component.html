@@ -1,7 +1,33 @@
 <app-userdashboard></app-userdashboard>
-<div *ngFor="let product of cartItems">
-    <img src="{{product.image}}" alt="">
-    <p>{{product.title}}</p>
-    <p>{{product.price}}</p>
-    <p>{{product.quantity}}</p>
+<div>
+  <table class="table-auto min-w-full">
+    <thead>
+      <tr>
+        <th class="px-4 py-2">Image</th>
+        <th class="px-4 py-2">Title</th>
+        <th class="px-4 py-2">Quantity</th>
+        <th class="px-4 py-2">Price per item</th>
+        <th class="px-4 py-2">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of cartItems ; let index = index">
+        <td><img src="{{ product.image }}" alt="{{product.description}}"/></td>
+        <td class="border px-4 py-2"><p>{{ product.title }}</p></td>
+        <td>
+          <div class="flex justify-center items-center">
+            <button class="p-2 bg-[#D03E3B] rounded-[8px] m-2" (click)="increaseQuantity(index)">+</button>
+            <p class="p-2 m-2">{{ product.quantity }}</p>
+            <button class="p-2 bg-[#D03E3B] rounded-[8px] m-2" (click)="decreaseQuantity(index)">-</button>
+          </div>
+        </td>
+        <td class="border px-4 py-2"><p>{{ product.price }}</p></td>
+        <td class="border px-4 py-2"><p>{{ product.quantity * product.price }}</p></td>
+      </tr>
+      <tr>
+        <td colspan="5" class="bg-red-800 justify-between">Total price is: <span>{{ getTotalPrice() }}</span></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+

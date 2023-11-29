@@ -1,16 +1,16 @@
 input[type=submit]{
-    background-color: #4CAF50;
+    background-color: #D03E3B;
 }
 div a{
     color: var(--blue);
     font-weight: 500;
 }
-.success-message {
-  color: green;
+.success-message, .error-message {
+  color: white;
   font-weight: 500;
   padding: 10px;
   margin-top: 10px;
-  background-color: #89eb8c;
+  background-color: #D03E3B;
   display: flex;
   justify-content: center;
   align-items: center;
