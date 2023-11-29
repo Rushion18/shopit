@@ -20,10 +20,11 @@ import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchproductPipe } from './pipe/searchproduct.pipe';
 import { PasswordComponent } from './password/password.component';
+import { AdminprofileComponent } from './adminprofile/adminprofile.component';
 
 
 @NgModule({
-  declarations: [AppComponent, NotfoundComponent, RegisterComponent, AdminhomeComponent, UserhomeComponent, LoginformComponent, AdmindashboardComponent, AddproductComponent, GetallusersComponent, SearchuserPipe, ProductModalComponent, UserdashboardComponent, CartComponent, ProfileComponent, SearchproductPipe, PasswordComponent],
+  declarations: [AppComponent, NotfoundComponent, RegisterComponent, AdminhomeComponent, UserhomeComponent, LoginformComponent, AdmindashboardComponent, AddproductComponent, GetallusersComponent, SearchuserPipe, ProductModalComponent, UserdashboardComponent, CartComponent, ProfileComponent, SearchproductPipe, PasswordComponent, AdminprofileComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

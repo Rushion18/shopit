@@ -12,6 +12,7 @@ import { ProductModalComponent } from './product-modal/product-modal.component';
 import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PasswordComponent } from './password/password.component';
+import { AdminprofileComponent } from './adminprofile/adminprofile.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'password', component: PasswordComponent },
+  { path: 'adminprofile', component: AdminprofileComponent},
 
   { path: '**', component: NotfoundComponent },
 ];

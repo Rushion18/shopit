@@ -26,7 +26,7 @@ export class PasswordComponent {
       console.log(this.passwordForm.value);
       this.register.forgotPassword(this.passwordForm.value).subscribe((response) => {
         console.log(response);
-        
+        // navigate['/login']
       })
     }
   }
