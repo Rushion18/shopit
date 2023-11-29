@@ -11,6 +11,7 @@
     <div class="rounded-[8px] myproduct" *ngFor="let product of products | searchproduct:searchtext">
       <img src="{{ product.image }}" alt="" />
       <p>{{ product.title }}</p>
+      <p>{{product.category}}</p>
       <p class="text-[#D03E3B] text-[1.2rem] font-[900]">
         {{ product.price | currency : "KES" }}
       </p>

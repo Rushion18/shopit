@@ -39,3 +39,7 @@ export const validateResetpassword = joi.object().keys({
   password: joi.string().pattern(new RegExp("^[a-zA-Z0-9!@#%$&*()]{0,30}$")),
 });
 
+export const validateUserEmailForgotPassword = joi.object().keys({
+  email: joi.string().email().required()
+});
+

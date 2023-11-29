@@ -14,9 +14,14 @@ CREATE TABLE Users (
 -- DROP TABLE Users
 
 -- created the admin
--- update Users 
+-- ALTER TABLE Users 
+-- ADD  resetPassword bit DEFAULT 0
+
 -- set role = 'admin'
 -- where email = '9superbikes@gmail.com'
 
 -- delete from Users 
 -- where email != '9superbikes@gmail.com'
+
+-- UPDATE Users
+-- SET resetPassword = 0

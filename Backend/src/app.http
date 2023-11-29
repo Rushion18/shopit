@@ -20,18 +20,19 @@ Content-Type: application/json
 
 ###getallUsers
 GET http://localhost:4500/user/getallusers
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxNjQ4ZjkyMi04YWU5LTQzYTctYWVlYS0wYzRmOWE0NzYyNTgiLCJ1c2VyTmFtZSI6IlNhbmRyYSBDaGVnZSIsImVtYWlsIjoiOXN1cGVyYmlrZXNAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaXNEZWxldGVkIjpmYWxzZSwiV2VsY29tZWQiOmZhbHNlLCJpYXQiOjE3MDExNzI5MzQsImV4cCI6MTcwMTI1OTMzNH0.n8N7Ef7jNp3OxqJFX5rTmoarC8W3Xt9QOkED0SueXrA
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxNjQ4ZjkyMi04YWU5LTQzYTctYWVlYS0wYzRmOWE0NzYyNTgiLCJ1c2VyTmFtZSI6IlNhbmRyYSBDaGVnZSIsImVtYWlsIjoiOXN1cGVyYmlrZXNAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaXNEZWxldGVkIjpmYWxzZSwiV2VsY29tZWQiOmZhbHNlLCJyZXNldFBhc3N3b3JkIjpmYWxzZSwiaWF0IjoxNzAxMjYzNjY1LCJleHAiOjE3MDEzNTAwNjV9.MsQJ-g6Sxb3o4vvCUsibFhWSdKhgGQHufHDlTIsEfYM
 
 ###checkuserdetails
 GET http://localhost:4500/user/checkuserdetails
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIxNjQ4ZjkyMi04YWU5LTQzYTctYWVlYS0wYzRmOWE0NzYyNTgiLCJ1c2VyTmFtZSI6IlNhbmRyYSBDaGVnZSIsImVtYWlsIjoiOXN1cGVyYmlrZXNAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpc0RlbGV0ZWQiOmZhbHNlLCJXZWxjb21lZCI6ZmFsc2UsImlhdCI6MTcwMTA3MjMwOSwiZXhwIjoxNzAxMTU4NzA5fQ.dVf298WLLdkMeNxVbOvfB2rup25orB2Y9_hQSvrwmlo
 
 ###getoneuser
-GET http://localhost:4500/user/getoneuser
+
+POST http://localhost:4500/user/getoneuser
 Content-Type: application/json
 
 {
-    "email": "Francis.Chegge@thejitu.com"
+    "email": "phillipwaiganjo@gmail.com"
 }
 
 ###updateuser
@@ -46,6 +47,14 @@ Content-Type: application/json
 
 ###deleteoneuser
 DELETE http://localhost:4500/user/deleteuser/5d36c3cd-987f-4236-b1b1-538016007e35
+
+#### forgot password 
+POST http://localhost:4500/user/forgot 
+Content-Type: application/json
+
+{
+"email":"phillipwaiganjo@gmail.com"
+}
 
 ###updatepassword
 POST http://localhost:4500/user/resetpassword

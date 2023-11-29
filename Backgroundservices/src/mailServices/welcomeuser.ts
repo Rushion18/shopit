@@ -1,6 +1,7 @@
 import ejs from "ejs";
 import mssql from "mssql";
 import dotenv from "dotenv";
+import path from "path";
 import { sqlConfig } from "../config/sqlConfig";
 import { sendMail } from "../helpers/emailhelpers";
 
@@ -8,7 +9,7 @@ export const welcomeUser = async () => {
   const pool = await mssql.connect(sqlConfig);
 
   const users = await (
-    await pool.request().query("SELECT * FROM Users WHERE EmailSent = 0")
+    await pool.request().query("SELECT * FROM Users WHERE Welcomed = 0")
   ).recordset;
 
   console.log(users);
@@ -17,7 +18,7 @@ export const welcomeUser = async () => {
    */
   for (let individualuser of users) {
     ejs.renderFile(
-      "templates/welcomeUser.ejs",
+      path.join(__dirname,"../templates/welcomeUser.ejs"),
       { Name: individualuser.userName },
       async (error, data) => {
         let mailOptions = {
@@ -33,7 +34,7 @@ export const welcomeUser = async () => {
           /**
            * change state of receiving email
            */
-          // await pool.request().query("UPDATE Users SET Welcomed = 1 WHERE Welcomed = 0");
+          await pool.request().query("UPDATE Users SET Welcomed = 1 WHERE Welcomed = 0");
 
           console.log("Emails send to new users");
         } catch (error) {

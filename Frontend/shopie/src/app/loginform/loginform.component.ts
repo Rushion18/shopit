@@ -30,9 +30,11 @@ export class LoginformComponent {
       this.register.loginregistereduser(this.loginForm.value).then((data) => {
         // console.log(data);
         localStorage.setItem('token', data.token);
+
         this.register.checkuserdetails().then((data) => {
           console.log(data);
           console.log(data.info.role);
+          localStorage.setItem('email', data.info.email);
 
           this.showSuccessMessage = true;
 

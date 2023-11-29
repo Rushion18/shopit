@@ -217,7 +217,33 @@ const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 });
 exports.deleteUser = deleteUser;
 //FORGOT PASSWORD
-const forgotPassword = (req, res) => __awaiter(void 0, void 0, void 0, function* () { });
+const forgotPassword = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { email } = req.body;
+        console.log(req.body);
+        if (!email)
+            return res.status(400).send({ message: "email is required" });
+        const { error } = userValidator_1.validateUserEmailForgotPassword.validate(req.body);
+        console.log(error);
+        if (error) {
+            return res.status(400).send({ error: "enter a valid email" });
+        }
+        const procedure1 = "getUserByEmail";
+        const result = yield (0, dbHelper_1.execute)(procedure1, { email });
+        const userWithEmail = result.recordset[0];
+        if (!userWithEmail)
+            return res.status(404).send({ error: "Invalid Email Provided " });
+        const procedureName = "forgotPassword";
+        yield (0, dbHelper_1.execute)(procedureName, { userID: userWithEmail.userID });
+        res
+            .status(201)
+            .send({ message: "check your email for a password reset link" });
+    }
+    catch (error) {
+        console.log(error);
+        res.send({ error: error.message });
+    }
+});
 exports.forgotPassword = forgotPassword;
 //RESER PASSWORD
 const resetPassword = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
