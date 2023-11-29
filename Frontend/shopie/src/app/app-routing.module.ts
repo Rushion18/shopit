@@ -11,6 +11,7 @@ import { GetallusersComponent } from './getallusers/getallusers.component';
 import { ProductModalComponent } from './product-modal/product-modal.component';
 import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PasswordComponent } from './password/password.component';
 
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'user', component: UserhomeComponent },
   { path: 'viewproduct', component: ProductModalComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'profile', component: ProfileComponent},
+  { path: 'profile', component: ProfileComponent },
+  { path: 'password', component: PasswordComponent },
 
   { path: '**', component: NotfoundComponent },
 ];

@@ -11,9 +11,9 @@ user_router.get("/getallusers", verifytoken_1.verifyToken, usercontroller_1.getA
 user_router.post("/register", usercontroller_1.registerUser);
 user_router.post("/login", usercontroller_1.loginUser);
 user_router.get("/checkuserdetails", verifytoken_1.verifyToken, usercontroller_1.checkUserDetails);
-user_router.get("/getoneuser", usercontroller_1.getOneUser);
+user_router.post("/getoneuser", usercontroller_1.getOneUser);
 user_router.put("/updateuser", usercontroller_1.updateUserDetails);
 user_router.delete("/deleteuser/:id", usercontroller_1.deleteUser);
 user_router.post("/resetpassword", usercontroller_1.resetPassword);
-// user_router.post("/updatepassword", updatePassword);
+user_router.post("/forgot", usercontroller_1.forgotPassword);
 exports.default = user_router;

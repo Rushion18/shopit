@@ -14,3 +14,4 @@ export interface getallusers {
   isDeleted: boolean;
   Welcomed: boolean;
 }
+

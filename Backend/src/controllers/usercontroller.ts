@@ -9,7 +9,8 @@ import {
   userRegisterValidationSchema,
     userLoginValidationSchema,
   validateUserEmail,
-  validateResetpassword
+  validateResetpassword,
+  validateUserEmailForgotPassword
 } from "../Validators/userValidator";
 import { execute } from "../helpers/dbHelper";
 import { ExtendedUser, ExtendedUser1 } from "../middlewares/verifytoken";
@@ -230,7 +231,40 @@ export const deleteUser = async (req: Request, res: Response) => {
 };
 
 //FORGOT PASSWORD
-export const forgotPassword = async (req: Request, res: Response) => { }
+export const forgotPassword = async (req: Request, res: Response) => { 
+   try {
+     const { email } = req.body;
+     console.log(req.body);
+
+     if (!email) return res.status(400).send({ message: "email is required" });
+
+     const { error } = validateUserEmailForgotPassword.validate(req.body);
+     console.log(error);
+     
+
+     if (error) {
+       return res.status(400).send({ error: "enter a valid email" });
+     }
+
+     const procedure1 = "getUserByEmail";
+     const result = await execute(procedure1, { email });
+
+     const userWithEmail = result.recordset[0];
+
+     if (!userWithEmail)
+       return res.status(404).send({ error: "Invalid Email Provided " });
+
+     const procedureName = "forgotPassword";
+     await execute(procedureName, { userID: userWithEmail.userID });
+
+     res
+       .status(201)
+       .send({ message: "check your email for a password reset link" });
+   } catch (error) {
+     console.log(error);
+     res.send({ error: (error as Error).message });
+   }
+}
 
 //RESER PASSWORD
 

@@ -102,4 +102,24 @@ export class RegisterService {
       options
     );
   }
+
+  //GET USER
+  getuser() {
+    const email = localStorage.getItem('email');
+    if (!email) {
+      return throwError('User not found');
+    }
+    return this.http.post(`http://localhost:4500/user/getoneuser`, { email });
+  }
+
+  updateUserProfile(userData: any) {    
+     const updateUrl = `http://localhost:4500/user/updateuser`;
+     return this.http.put(updateUrl, userData);
+  }
+
+  //FORGOT PASSWORD
+  forgotPassword(email: any) {
+    console.log(email);
+    return this.http.post(`http://localhost:4500/user/forgot`,  email );
+  }
 }
