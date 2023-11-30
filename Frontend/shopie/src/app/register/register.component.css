@@ -1,16 +1,12 @@
 input[type=submit]{
-    background-color: #4CAF50;
-}
-div a{
-    color: var(--blue);
-    font-weight: 500;
+    background-color: #D03E3B;
 }
 .success-message {
-  color: green;
+  color: white;
   font-weight: 500;
   padding: 5px;
   margin-top: 10px;
-  background-color: #89eb8c;
+  background-color: #D03E3B;
   display: flex;
   justify-content: center;
   align-items: center;

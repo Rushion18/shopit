@@ -10,8 +10,7 @@ import { getallproducts } from '../interface/products';
 })
 export class CartComponent {
   cartItems: any[] = [];
-  // cartProducts: any[] = [];
-  // products: getallproducts[] = [];
+
 
   constructor(
     private router: Router,
@@ -42,11 +41,8 @@ export class CartComponent {
       this.cartItems[index].quantity--;
     }
   }
-
-  // getTotalPrice(): number {
-  //   return this.cartItems.reduce(
-  //     (total, product) => total + product.quantity * product.price,
-  //     0
-  //   );
-  // }
+    clearCart() {
+      localStorage.removeItem('cart')
+      this.displayCart()
+  }
 }

@@ -1,10 +1,6 @@
 input[type=submit]{
     background-color: #D03E3B;
 }
-div a{
-    color: var(--blue);
-    font-weight: 500;
-}
 .success-message, .error-message {
   color: white;
   font-weight: 500;
