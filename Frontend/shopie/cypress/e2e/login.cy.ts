@@ -35,3 +35,13 @@
 //       cy.location('pathname').should('eq', '/adminhome');
 //     });
 // });
+
+describe('forgot password', () => {
+  it("forget password",() => {
+    cy.visit('/login');
+    cy.get('[data-cy="forgotpassword"]').click();
+    // cy.visit('/password');
+    cy.get('[data-cy="email"]').type('janeDoe@yopmail.com');
+    cy.get('[data-cy="resetPassword"]').click();
+  })
+})

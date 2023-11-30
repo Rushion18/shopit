@@ -35,3 +35,36 @@
 //     }
 //   }
 // }
+
+
+Cypress.Commands.add('loginUser', () => {
+  cy.visit('/login');
+
+  cy.get('[data-cy="email"]').type('janeDoe@yopmail.com');
+  cy.get('[data-cy="password"]').type('12345678');
+
+  cy.get('[data-cy="login_user_btn"]').click();
+
+  cy.get('[data-cy="logged-in-success-popup"]');
+  cy.location('pathname').should('eq', '/user');
+});
+
+Cypress.Commands.add('addProduct', () => {
+  it('adds to cart', () => {
+
+    cy.visit('/user');
+    cy.get('[data-cy="addtoCart"]').first().click();
+  });
+})
+ 
+Cypress.Commands.add('loginAdmin', () => {
+  cy.visit('/login');
+
+  cy.get('[data-cy="email"]').type('9superbikes@gmail.com');
+  cy.get('[data-cy="password"]').type('12345678');
+
+  cy.get('[data-cy="login_user_btn"]').click();
+
+  cy.get('[data-cy="logged-in-success-popup"]');
+  cy.location('pathname').should('eq', '/adminhome');
+});

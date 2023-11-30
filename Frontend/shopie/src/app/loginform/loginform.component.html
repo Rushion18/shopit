@@ -22,7 +22,7 @@
             <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-red-500">Password is required</div>
         </div>
         <div class="my-[4px] flex flex-row-reverse">
-            <a routerLink = "/password" class="text-s">Forgot Password</a>
+            <a routerLink = "/password" data-cy="forgotpassword" class="text-s">Forgot Password</a>
         </div>
         <div class="flex flex-col">
             <input data-cy="login_user_btn" type="submit" value="Login" class="rounded-[2px] border-solid border-[1px] border-[#D03E3B]-100 outline-none px-4 py-[6px] mt-[1rem] hover:cursor-pointer">

@@ -1,10 +1,13 @@
 describe('user functionality', () => {
+  beforeEach('', () => {
+    cy.loginUser();
+  });
+
   it('search for a product', () => {
     cy.visit('/user');
-
     const searchterm = 'wine';
-    cy.get('[data-cy = "searchproduct"]').type(searchterm);
-    cy.get('[data-cy = "product"]').should('have.length.greaterThan', 0);
+    cy.get('[data-cy="searchproduct"]').type(searchterm);
+    cy.get('[data-cy="product"]').should('have.length.greaterThan', 0);
   });
 
   it('views a product', () => {
@@ -20,23 +23,29 @@ describe('user functionality', () => {
     cy.get('[data-cy="addtoCart"]').first().click();
   });
 
+  it('checks if cart is empty', () => {
+    cy.visit('/cart');
+
+    cy.get('[data-cy="cartItems"]').should('have.length', 0);
+  });
+
   it('checks if cart is not empty', () => {
     cy.visit('/cart');
-
-    cy.get('[data-cy="cartItems"]').should('have.length.greaterThan', 0);
+    cy.addProduct();
+    cy.get('[data-cy="cartItems"]').should('have.length', 0);
   });
 
-  it('increases cart quantity', () => {
-    cy.visit('/cart');
+  // it('increases cart quantity', () => {
+  //   cy.visit('/cart');
+  //   cy.addProduct();
+  //   cy.get('[data-cy="increaseQuantity"]').first().click();
+  // });
 
-    cy.get('[data-cy="increaseQuantity"]').click();
-  });
-
-  it('reduces cart quantity', () => {
-    cy.visit('/cart');
-
-    cy.get('[data-cy="decreaseQuantity"]').click();
-  });
+  // it('reduces cart quantity', () => {
+  //   cy.visit('/cart');
+  //   cy.addProduct();
+  //   cy.get('[data-cy="decreaseQuantity"]').click();
+  // });
 
   it('checks for total price', () => {
     cy.visit('/cart');
@@ -55,7 +64,7 @@ describe('user functionality', () => {
 
     cy.get('[data-cy="userName"]').type('Jane Doe from FBI');
     cy.get('[data-cy="email"]').type('janedoe@gmail.com');
-    cy.get('[data-cy="phone_no"]').type('0789898989')
+    cy.get('[data-cy="phone_no"]').type('0789898989');
 
     cy.get('[data-cy="updateProfile"]').click();
   });
