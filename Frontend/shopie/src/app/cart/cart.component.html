@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let product of cartItems ; let index = index">
+      <tr *ngFor="let product of cartItems ; let index = index" data-cy="cartItems">
         <td><img src="{{ product.image }}" alt="{{product.description}}"/></td>
         <td class="border px-4 py-2"><p>{{ product.title }}</p></td>
         <td>
@@ -32,7 +32,7 @@
         <td></td>
         <td></td>
         <td></td>
-        <td>Total price is: <span>{{ getTotalPrice() }}</span></td>
+        <td>Total price is: <span data-cy="totalPrice">{{ getTotalPrice() }}</span></td>
       </tr>
     </tbody>
   </table>

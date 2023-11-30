@@ -2,13 +2,13 @@
 
 <div class="flex justify-end p-4 items-center">
   <!-- <label for="" class="mx-4" >Search</label> -->
-  <input type="text" [(ngModel)]="searchtext" placeholder="Seach product" name="" id="" class="w-[30vw] p-2 rounded-[10px] outline-none border-[1px] border-solid border-[#D03E3B]">
+  <input type="text" data-cy="searchproduct"  [(ngModel)]="searchtext" placeholder="Seach product" name="" id="searchproduct" class="w-[30vw] p-2 rounded-[10px] outline-none border-[1px] border-solid border-[#D03E3B]">
 </div>
 
 <div class="bg-[#F3F4F6]" id="allproducts">
   <!-- <{employees: Employee[]}> -->
   <div id="products">
-    <div class="rounded-[8px] myproduct" *ngFor="let product of products | searchproduct:searchtext">
+    <div data-cy="product" class="rounded-[8px] myproduct" *ngFor="let product of products | searchproduct:searchtext">
       <img src="{{ product.image }}" alt="" />
       <p>{{ product.title }}</p>
       <p>{{product.category}}</p>
