@@ -47,7 +47,10 @@ const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         const Procedure1 = "getUserByEmail";
         const Param = { email };
         const result = yield (0, dbHelper_1.execute)(Procedure1, Param);
-        const user = result.recordset[0];
+        // const user = result.recordset[0];
+        const user = result.recordset && result.recordset.length > 0
+            ? result.recordset[0]
+            : undefined;
         // console.log(user);
         if (user) {
             return res.json({ error: "Email already exists. User not registered." });

@@ -39,7 +39,11 @@ export const registerUser = async (req: Request, res: Response) => {
 
     const result = await execute(Procedure1, Param);
 
-    const user = result.recordset[0];
+    // const user = result.recordset[0];
+    const user =
+      result.recordset && result.recordset.length > 0
+        ? result.recordset[0]
+        : undefined;
 
     // console.log(user);
 
