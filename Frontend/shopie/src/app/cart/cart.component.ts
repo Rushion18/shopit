@@ -41,7 +41,8 @@ export class CartComponent {
       this.cartItems[index].quantity--;
     }
   }
-  //   clearcart() {
-  //   localStorage.clear('cart')
-  // }
+    clearCart() {
+      localStorage.removeItem('cart')
+      this.displayCart()
+  }
 }

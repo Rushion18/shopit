@@ -1,7 +1,7 @@
 <app-userdashboard></app-userdashboard>
 <div>
   <div>
-    <!-- <button (click)="clearcart()" class="bg-[#D03E3B] text-white px-4 py-2 rounded-[8px]">Clear Cart</button> -->
+    <button data-cy="clearCart" (click)="clearCart()" class="bg-[#D03E3B] text-white px-4 py-2 rounded-[8px]">Clear Cart</button>
   </div>
   <table class="table-auto min-w-full">
     <thead>
@@ -19,9 +19,9 @@
         <td class="border px-4 py-2"><p>{{ product.title }}</p></td>
         <td>
           <div class="flex justify-center items-center">
-            <button class="p-2 bg-[#D03E3B] rounded-[8px] m-2" (click)="increaseQuantity(index)">+</button>
+            <button class="p-2 bg-[#D03E3B] rounded-[8px] m-2" data-cy="increaseQuantity" (click)="increaseQuantity(index)">+</button>
             <p class="p-2 m-2">{{ product.quantity }}</p>
-            <button class="p-2 bg-[#D03E3B] rounded-[8px] m-2" (click)="decreaseQuantity(index)">-</button>
+            <button class="p-2 bg-[#D03E3B] rounded-[8px] m-2" data-cy="decreaseQuantity" (click)="decreaseQuantity(index)">-</button>
           </div>
         </td>
         <td class="border px-4 py-2"><p>{{ product.price }}</p></td>
